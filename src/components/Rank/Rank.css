@@ -1,0 +1,30 @@
+.rank-container {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.rank-text {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.rank-number {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+@media (max-width: 350px) {
+  .rank-text {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .rank-number {
+    font-size: 2.2rem;
+  }
+
+  .rank-container {
+    padding: 1rem;
+  }
+}

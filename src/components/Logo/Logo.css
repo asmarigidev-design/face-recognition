@@ -1,0 +1,257 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.logo-brain {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 1.5rem;
+}
+
+.brain-icon-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 10px 30px rgba(102, 126, 234, 0.4),
+    0 5px 15px rgba(118, 75, 162, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  animation: float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.brain-icon {
+  font-size: 3.5rem;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.brain-icon-wrapper:hover .brain-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.6;
+  animation: pulse-glow 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.logo-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea, #f093fb);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateX(70px);
+  opacity: 0;
+  animation: particle-rotate 8s linear infinite;
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+.particle:nth-child(even) {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  width: 3px;
+  height: 3px;
+}
+
+.logo-text {
+  text-align: center;
+  z-index: 2;
+}
+
+.logo-title {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.logo-subtitle {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b7280;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes particle-rotate {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateX(70px) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateX(75px) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg + 360deg)) translateX(70px) scale(0);
+  }
+}
+
+/* ریسپانسیو برای تبلت */
+@media (max-width: 768px) {
+  .logo-brain {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .brain-icon {
+    font-size: 2.8rem;
+  }
+
+  .logo-glow {
+    width: 120px;
+    height: 120px;
+  }
+
+  .logo-particles {
+    width: 140px;
+    height: 140px;
+  }
+
+  .particle {
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateX(60px);
+  }
+
+  .logo-title {
+    font-size: 2rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 480px) {
+  .logo-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .logo-brain {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .brain-icon {
+    font-size: 2.2rem;
+  }
+
+  .logo-glow {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-particles {
+    width: 120px;
+    height: 120px;
+  }
+
+  .particle {
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateX(50px);
+  }
+
+  .logo-title {
+    font-size: 1.75rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* افکت‌های تعاملی */
+.logo-container:hover .brain-icon-wrapper {
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-container:hover .logo-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* پشتیبانی از حالت تاریک */
+@media (prefers-color-scheme: dark) {
+  .logo-subtitle {
+    color: #9ca3af;
+  }
+}
+
+/* پشتیبانی از دستگاه‌های لمسی */
+@media (hover: none) and (pointer: coarse) {
+  .logo-container:hover .brain-icon-wrapper {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .logo-container:hover .logo-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+}
